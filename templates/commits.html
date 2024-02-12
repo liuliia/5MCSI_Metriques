@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Nombre de commit par minutes</title>
+    <title>Commit Activity Chart</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -15,7 +15,7 @@
           data.addRows(commitData);
 
           var options = {
-            title: 'Nombre de commit par minutes',
+            title: 'Commit Activity (Day and Hour)',
             hAxis: {title: 'DateTime', slantedText: true, slantedTextAngle: 45},
             vAxis: {
               title: 'Commits',
@@ -33,7 +33,7 @@
       }
 
       async function fetchData() {
-        const response = await fetch('https://api.github.com/repos/Posayidon/5MCSI_Metriques/commits');
+        const response = await fetch('https://api.github.com/repos/imtomjorge/5MCSI_Metriques/commits');
         const commits = await response.json();
         const commitCountPerDateTime = {};
 
@@ -56,7 +56,7 @@
       }
     </script>
   </head>
-  <body style="background-color:powderblue">
-    <div id="chart_div" style="width: 100%; height: 500px;background-color:powderblue"></div>
+  <body>
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
   </body>
 </html>
